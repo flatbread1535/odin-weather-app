@@ -22,6 +22,8 @@ class WeatherLocation {
     this.high = weatherData.days[0].tempmax;
     this.low = weatherData.days[0].tempmin;
     this.feelsLike = weatherData.currentConditions.feelslike;
+
+    console.log(this.feelsLike);
   }
 }
 
