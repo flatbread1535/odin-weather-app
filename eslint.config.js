@@ -10,6 +10,7 @@ export default defineConfig([
         window: "readonly",
         document: "readonly",
         fetch: "readonly",
+        process: "readonly",
       },
     },
     plugins: {

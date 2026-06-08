@@ -1,6 +1,6 @@
 class WeatherLocationAPI {
   constructor() {
-    this.apiKey = "process.env.WEATHER_API_KEY";
+    this.apiKey = process.env.WEATHER_API_KEY;
     this.apiBaseUrl =
       "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
   }
