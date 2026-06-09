@@ -1,5 +1,39 @@
+import clearDay from "./svgs/clear-day.svg";
+import clearNight from "./svgs/clear-night.svg";
+import partlyCloudyDay from "./svgs/partly-cloudy-day.svg";
+import partlyCloudyNight from "./svgs/partly-cloudy-night.svg";
+import cloudy from "./svgs/cloudy.svg";
+import rain from "./svgs/rain.svg";
+import snow from "./svgs/snow.svg";
+import wind from "./svgs/wind.svg";
+import fog from "./svgs/fog.svg";
+
 // DOM manipulation function that displays location weather information
 const loadDisplay = (locationWeather) => {
+  const getIconPath = (icon) => {
+    switch (icon) {
+      case "clear-day":
+        return clearDay;
+      case "clear-night":
+        return clearNight;
+      case "partly-cloudy-day":
+        return partlyCloudyDay;
+      case "partly-cloudy-night":
+        return partlyCloudyNight;
+      case "cloudy":
+        return cloudy;
+      case "rain":
+        return rain;
+      case "snow":
+        return snow;
+      case "wind":
+        return wind;
+      case "fog":
+        return fog;
+      default:
+        return "#";
+    }
+  };
 
   const content = document.getElementById("content");
   content.replaceChildren();
@@ -8,7 +42,8 @@ const loadDisplay = (locationWeather) => {
   container.classList.add("container");
 
   const weatherIcon = document.createElement("img");
-  weatherIcon.src = "#";
+  const iconPath = getIconPath(locationWeather.icon);
+  weatherIcon.src = iconPath;
   weatherIcon.alt = locationWeather.conditions;
   container.appendChild(weatherIcon);
 
