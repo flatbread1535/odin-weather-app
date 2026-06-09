@@ -10,6 +10,7 @@
   --white: #ffffff;
   --navy: #1c2541;
   --ivory: #fdfbf7;
+  --red: #FF0800;
 }
 
 * {
@@ -45,26 +46,29 @@ form {
   gap: 20px;
   width: 100%;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* Search bar label and text input box styling */
 .search-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   width: 100%;
   max-width: clamp(250px, 50%, 600px);
 }
 
 .search-bar > label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.instruction {
   color: var(--white);
   font-size: 1rem;
   font-weight: bold;
   padding: 0 0 0 12px;
 }
 
-.search-bar > input {
+#location {
   height: 40px;
   width: 100%;
   padding: 4px 12px;
@@ -75,12 +79,13 @@ form {
   font-size: 1rem;
 }
 
-.search-bar > input:focus {
+#location:focus {
   outline: none;
 }
 
 /* Search button */
 .search-btn {
+  margin-top: 18px;
   height: 40px;
   width: 40px;
   background-color: var(--white);
@@ -88,4 +93,23 @@ form {
   border-radius: 12px;
   padding: 6px;
   cursor: pointer;
+}
+
+/* Form validation styling */
+#location:focus:invalid {
+  border: 1px solid var(--red);
+  outline: none;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--red);
+  border-radius: 6px;
+}
+
+.error.active {
+  padding: 0.3em;
 }

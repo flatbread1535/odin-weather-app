@@ -6,12 +6,16 @@
     <title>Weather App</title>
   </head>
   <body>
+    <!-- Top navbar for searching locations -->
     <header>
       <nav>
-        <form>
+        <form nonvalidate>
           <div class="search-bar">
-            <label for="location">Enter a location:</label>
-            <input type="text" id="location" />
+            <label for="location">
+              <span class="instruction">Enter a location:</span>
+              <input type="text" id="location" minlength="2" required />
+              <span class="error" aria-live="polite"></span>
+            </label>
           </div>
           <button class="search-btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
