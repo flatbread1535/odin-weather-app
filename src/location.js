@@ -15,7 +15,6 @@ class LocationWeather {
 
   async setWeather() {
     const weatherData = await this.api.getLocationInfo(this.locationName);
-    console.log(weatherData);
 
     this.temp = weatherData.currentConditions.temp;
     this.conditions = weatherData.currentConditions.conditions;
