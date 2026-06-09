@@ -1,9 +1,9 @@
-import WeatherLocationAPI from "./apis.js";
+import WeatherAPI from "./apis.js";
 
-class WeatherLocation {
+class LocationWeather {
   constructor(location) {
     this.locationName = location;
-    this.api = new WeatherLocationAPI();
+    this.api = new WeatherAPI();
 
     // Weather characteristics
     this.temp = null;
@@ -24,4 +24,4 @@ class WeatherLocation {
   }
 }
 
-export default WeatherLocation;
+export default LocationWeather;

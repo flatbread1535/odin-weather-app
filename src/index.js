@@ -1,7 +1,8 @@
-import WeatherLocation from "./location.js";
+import LocationWeather from "./location.js";
+import loadDisplay from "./display.js";
 import "./style.css";
 
-const weatherLoc = new WeatherLocation("london");
+const weatherLoc = new LocationWeather("london");
 weatherLoc.setWeather();
 
 const getInput = (onValidInput) => {
@@ -15,7 +16,7 @@ const getInput = (onValidInput) => {
       inputError.textContent = "Please enter the name of a city.";
     } else if (input.validity.tooShort) {
       inputError.textContent = `Location name must be at least ${input.minLength} characters.`;
-    } 
+    }
     inputError.className = "error active";
   };
 
@@ -33,15 +34,23 @@ const getInput = (onValidInput) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!input.validity.valid) {
-         showInputError();
+      showInputError();
     } else {
-        onValidInput(input.value);
-        form.reset();
+      onValidInput(input.value);
+      form.reset();
     }
   });
 };
 
 getInput(async (location) => {
-    const weatherLoc = new WeatherLocation(location);
+  try {
+    const weatherLoc = new LocationWeather(location);
     await weatherLoc.setWeather();
+    loadDisplay(weatherLoc);
+  } catch (error) {
+    console.error(error);
+    const inputError = document.querySelector("#location + span.error");
+    inputError.textContent = "Could not load weather for that location.";
+    inputError.className = "error active";
+  }
 });

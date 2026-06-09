@@ -1,4 +1,4 @@
-class WeatherLocationAPI {
+class WeatherAPI {
   constructor() {
     this.apiKey = process.env.WEATHER_API_KEY;
     this.apiBaseUrl =
@@ -14,8 +14,9 @@ class WeatherLocationAPI {
       return weatherData;
     } catch (error) {
       console.error(error);
+      return null;
     }
   }
 }
 
-export default WeatherLocationAPI;
+export default WeatherAPI;
