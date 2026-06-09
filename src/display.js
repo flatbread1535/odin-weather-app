@@ -1,26 +1,30 @@
 // DOM manipulation function that displays location weather information
 const loadDisplay = (locationWeather) => {
+
   const content = document.getElementById("content");
   content.replaceChildren();
+
+  const container = document.createElement("div");
+  container.classList.add("container");
 
   const weatherIcon = document.createElement("img");
   weatherIcon.src = "#";
   weatherIcon.alt = locationWeather.conditions;
-  content.appendChild(weatherIcon);
+  container.appendChild(weatherIcon);
 
   const locationHeader = document.createElement("h1");
   locationHeader.textContent = locationWeather.locationName;
-  content.appendChild(locationHeader);
+  container.appendChild(locationHeader);
 
   const locationTemp = document.createElement("p");
   locationTemp.classList.add("temp");
   locationTemp.textContent = `${locationWeather.temp}°`;
-  content.appendChild(locationTemp);
+  container.appendChild(locationTemp);
 
   const locationConditions = document.createElement("p");
   locationConditions.classList.add("conditions");
   locationConditions.textContent = locationWeather.conditions;
-  content.appendChild(locationConditions);
+  container.appendChild(locationConditions);
 
   const highLowContainer = document.createElement("div");
   highLowContainer.classList.add("high-low-container");
@@ -32,12 +36,14 @@ const loadDisplay = (locationWeather) => {
   const low = document.createElement("p");
   low.textContent = `L:${locationWeather.low}°`;
   highLowContainer.appendChild(low);
-  content.appendChild(highLowContainer);
+  container.appendChild(highLowContainer);
 
   const feelsLike = document.createElement("p");
   feelsLike.classList.add("feels-like");
   feelsLike.textContent = `Feels like: ${locationWeather.feelsLike}°`;
-  content.appendChild(feelsLike);
+  container.appendChild(feelsLike);
+
+  content.appendChild(container);
 };
 
 export default loadDisplay;
